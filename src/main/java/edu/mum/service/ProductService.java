@@ -24,9 +24,9 @@ public class ProductService  {
         return "saved!";
     }
 
-    public String deleteProduct(Product product){
+    public String deleteProduct(int productId){
 
-        productRepository.delete(product);
+        productRepository.delete(productId);
 
         return " item is deleted";
     }
@@ -43,5 +43,11 @@ public class ProductService  {
         return  productRepository.findOne(productId);
     }
 
+    public String updateProduct(Product product){
+
+        productRepository.save(product);
+
+        return "successfully updated!";
+    }
 
 }
