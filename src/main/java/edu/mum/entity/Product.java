@@ -7,29 +7,23 @@ public class Product {
 
     @Id
     @GeneratedValue
-    int productId;
-
-    double price;
+    private int productId;
+    private double price;
     @Enumerated(EnumType.STRING)
-    ProductType type;
-
-    String description;
+    private ProductType type;
+    private String description;
     @Lob
     byte[] image;
-    /*OrderLine orderline;*/
-
-    public Product(double price, int productId, ProductType type, String description, byte[] image) {
-        super();
-
-        this.price = price;
-        this.productId = productId;
-        this.type = type;
-        this.description = description;
-        this.image = image;
-    }
 
     public Product() {
         super();
+    }
+
+    public Product(double price, ProductType type, String description, byte[] image) {
+        this.price = price;
+        this.type = type;
+        this.description = description;
+        this.image = image;
     }
 
     public double getPrice() {

@@ -1,46 +1,48 @@
 package edu.mum.service;
 
 import edu.mum.entity.Product;
-import edu.mum.repository.IProductRepository;
+import edu.mum.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
-
 @Service
 @Transactional
-public class ProductService  {
+public class ProductService {
 
     @Autowired
-    private IProductRepository productRepository;
+    private ProductRepository productRepository;
 
-    public String saveProduct(Product product){
+    //create
+    public void saveProduct(Product product) {
 
         productRepository.save(product);
-
-
-        return "saved!";
     }
 
-    public String deleteProduct(Product product){
+    //delete
+    public void deleteProduct(int productId) {
 
-        productRepository.delete(product);
-
-        return " item is deleted";
+        productRepository.delete(productId);
     }
 
-    public List<Product> searchAllProduct(){
+    //read
+    public List<Product> getAllProduct() {
 
-        List<Product>products = productRepository.findAll();
+        List<Product> products = productRepository.findAll();
 
         return products;
 
     }
 
     public Product getProduct(Integer productId) {
-        return  productRepository.findOne(productId);
+        return productRepository.findOne(productId);
+    }
+
+    //update
+    public void updateProduct(int productId, Product product) {
+        productRepository.save(product);
     }
 
 
