@@ -10,25 +10,17 @@ import java.util.Date;
 public class Shipping {
 
     @Id @GeneratedValue
-    private int id;
+    private int shipId;
     @Temporal(TemporalType.DATE)
     private Date  estimatedDate;
     private float shippingCost;
 
-    public Shipping() {
+    public int getShipId() {
+        return shipId;
     }
 
-    public Shipping(Date estimatedDate, float shippingCost) {
-        this.estimatedDate = estimatedDate;
-        this.shippingCost = shippingCost;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setShipId(int shipId) {
+        this.shipId = shipId;
     }
 
     public Date getEstimatedDate() {

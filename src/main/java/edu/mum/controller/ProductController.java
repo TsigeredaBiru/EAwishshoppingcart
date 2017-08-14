@@ -36,4 +36,9 @@ public class ProductController {
         productService.updateProduct(productId, product);
         return "Success update";
     }
+
+    @GetMapping("/getProduct/{productId}")
+    public Product getOneProduct(@PathVariable int productId){
+        return productService.getProduct(productId);
+    }
 }

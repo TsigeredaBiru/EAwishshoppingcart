@@ -9,9 +9,9 @@ public class OrderLine {
     @Id @GeneratedValue
     private int orderLineId;
     private int quantity;
-    @OneToOne
+    @OneToOne(cascade=CascadeType.ALL)
     private Product product;
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinTable(name = "order_orderline")
     private Order order;
 
