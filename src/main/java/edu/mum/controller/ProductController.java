@@ -20,7 +20,7 @@ public class ProductController {
     @RequestMapping(value="/products")
     public String selectAll(Model model) {
         model.addAttribute("products", productService.searchAllProduct() );
-        return "productpage2";
+        return "productpage4";
     }
 
    @RequestMapping(value="/products/savedproducts", method = RequestMethod.POST)

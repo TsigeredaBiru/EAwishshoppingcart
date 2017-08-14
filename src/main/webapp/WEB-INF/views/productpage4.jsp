@@ -8,31 +8,37 @@
 <head>
     <meta charset="UTF-8">
 
-
     <link rel="stylesheet" type="text/css" href="../../static/pageStyle.css">
+    <!-- Bootstrap Core CSS -->
+    <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="static/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="static/css/sb-admin-2.min.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <title>product</title>
 
-
 </head>
-
-
-
 <body>
 <div id="wrapper">
-
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <p>where I am located????</p>
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Mum Sched</a>
+            <input type="text" name="search">
+            <a class="navbar-brand" href="/">WishShoppingCart</a>
         </div>
         <!-- /.navbar-header -->
+       <p>Tsigereda tsigereda tsigereda tsigereda</p>
 
         <ul class="nav navbar-top-links navbar-right">
 
@@ -50,48 +56,23 @@
                     <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                     </li>
                 </ul>
-                <!-- /.dropdown-user -->
+
             </li>
-            <!-- /.dropdown -->
+
         </ul>
-        <!-- /.navbar-top-links -->
-        <%@ include file="layout/left.jsp" %>
-        <!-- /.navbar-static-side -->
+
     </nav>
 
-    <div id="page-wrapper">
-        <div class="row">
-            <div class="col-lg-12">
-                <h1 class="page-header">Dashboard</h1>
-            </div>
-            <!-- /.col-lg-12 -->
+
         </div>
         <!-- /.row -->
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <i class="fa fa-bar-chart-o fa-fw"></i> Helloo Me
 
-                    </div>
                     <!-- /.panel-heading -->
+                    <div class="col-2">this is col 2</div>
                     <div class="panel-body">
-
+                    <p>hello this is panel body</p>
                     </div>
-                    <!-- /.panel-body -->
-                </div>
 
-                <!-- /.panel -->
-            </div>
-            <!-- /.col-lg-8 -->
-            <!-- /.col-lg-4 -->
-        </div>
-        <!-- /.row -->
-    </div>
-    <!-- /#page-wrapper -->
-
-</div>
-<!-- /#wrapper -->
 
 <!-- jQuery -->
 <script src="static/vendor/jquery/jquery.min.js"></script>
@@ -111,11 +92,12 @@
 <script src="static/js/sb-admin-2.js"></script>
 
 
+
     <ul class="forImagelist">
     <c:forEach var="product" items="${products}">
         <li>
-            <img src="${pageContext.request.contextPath}/images/${product.image}"
-            width="50%" height="50%" style="padding: 10px 10px"/>
+           <a href="123"> <img src="${pageContext.request.contextPath}/images/${product.image}"
+            width="50%" height="50%" style="padding: 10px 10px"/></a>
 
 
                 <h4>${product.description}</h4>
