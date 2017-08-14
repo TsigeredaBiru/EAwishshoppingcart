@@ -19,14 +19,47 @@
     <link href="static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <title>product</title>
+<style>
+    input{
+        width: 400px;
+
+       border-radius: 4px;
+       background-color: white;
+      margin-left: 20px;
+        padding-right: 5px;  }
+
+.navcolor{
+    background-color: #0c0c0c;
+
+}
+.searchP{
+    margin-left: 10px;
+}
+.searchLoc{
+    margin-top: 20px;
+}
+    .styleUsersList{
+        width: 200px;
+        margin-left: 200px;
+        padding: 10px;
+       /* background-color: #1ab7ea;*/
+        display: inline-block;
+    }
+    #bodyContainer{
+        margin-bottom: 100px;
+        background-color: white;
+
+    }
+</style>
+
 
 </head>
 <body>
 <div id="wrapper">
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-            <p>where I am located????</p>
+    <nav class="navbar navbar-default navbar-static-top navcolor" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header ">
+
             <button type="button" class="navbar-toggle" data-toggle="collapse"
                     data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -34,11 +67,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <input type="text" name="search">
+
+            <p class="searchLoc"><form action="/products6?id=${product.productId}" method="post">
+            <input type="text" name="productId" value="${product.productId}"><button<%--a href="/products6?id=${product.productId}"--%> class="btn btn-success searchP">Search</button></form></p>
             <a class="navbar-brand" href="/">WishShoppingCart</a>
         </div>
         <!-- /.navbar-header -->
-       <p>Tsigereda tsigereda tsigereda tsigereda</p>
+
 
         <ul class="nav navbar-top-links navbar-right">
 
@@ -68,9 +103,11 @@
         <!-- /.row -->
 
                     <!-- /.panel-heading -->
-                    <div class="col-2">this is col 2</div>
-                    <div class="panel-body">
-                    <p>hello this is panel body</p>
+                    <div id="bodyContainer">
+
+
+                        <a href="userlist"><h3 class="styleUsersList">List of users</h3></a>
+                        <a href="userlist"><h3 class="styleUsersList">List of Products</h3></a>
                     </div>
 
 
@@ -96,8 +133,10 @@
     <ul class="forImagelist">
     <c:forEach var="product" items="${products}">
         <li>
-           <a href="123"> <img src="${pageContext.request.contextPath}/images/${product.image}"
-            width="50%" height="50%" style="padding: 10px 10px"/></a>
+           <a href="/products5?id=${product.productId}">
+               <img src="data:image/jpg;base64,${strData}"
+            width="50%" height="50%" style="padding: 10px 10px"/>
+            </a>
 
 
                 <h4>${product.description}</h4>

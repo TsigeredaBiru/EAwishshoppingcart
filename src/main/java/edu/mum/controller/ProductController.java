@@ -20,7 +20,25 @@ public class ProductController {
     @RequestMapping(value="/products")
     public String selectAll(Model model) {
         model.addAttribute("products", productService.searchAllProduct() );
+        return "productpage1";
+    }
+
+    @RequestMapping(value="/products2")
+    public String selectAll2(Model model) {
+        model.addAttribute("products", productService.searchAllProduct() );
         return "productpage4";
+    }
+
+    @RequestMapping(value="/products5")
+    public String selectone(Model model,@RequestParam("id") int id) {
+        model.addAttribute("product", productService.getProduct(id));
+        return "productpage5";
+    }
+    @RequestMapping(value="/product6")
+    public String searchID(Model model,@RequestParam("id") int id){
+        model.addAttribute("product",productService.getProduct(id));
+        return "productpage6";
+
     }
 
    @RequestMapping(value="/products/savedproducts", method = RequestMethod.POST)

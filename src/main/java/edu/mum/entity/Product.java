@@ -1,5 +1,7 @@
 package edu.mum.entity;
 
+import org.apache.tomcat.util.codec.binary.Base64;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,6 +18,10 @@ public class Product {
     String description;
     @Lob
     byte[] image;
+
+    @Transient
+    private
+    String strData;
     /*OrderLine orderline;*/
 
     public Product(double price, int productId, ProductType type, String description, byte[] image) {
@@ -57,6 +63,16 @@ public class Product {
     }
 
     public String getDescription() {
+        if(image != null)
+        {
+            try{
+                image = Base64.encodeBase64(image);
+                strData = new String(image,"UTF-8");
+            }catch(Exception ex)
+            {
+                System.out.println(ex.getMessage());
+            }
+        }
         return description;
     }
 
@@ -72,4 +88,12 @@ public class Product {
         this.image = image;
     }
 
+    public String getStrData() {
+
+        return strData;
+    }
+
+    public void setStrData(String strData) {
+        this.strData = strData;
+    }
 }

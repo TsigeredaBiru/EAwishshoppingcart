@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 
 
 <!DOCTYPE html>
@@ -32,7 +32,7 @@
 
     <tbody>
 
-    <c:forEach var="product" items="${products}">
+    <%--<c:forEach var="product" items="${products}">--%>
         <tr>
             <td>${product.productId}</td>
             <td>${product.description}</td>
@@ -50,7 +50,7 @@
                 </form>
             </td>
         </tr>
-    </c:forEach>
+    <%--</c:forEach>--%>
     </tbody>
 
 </table>
