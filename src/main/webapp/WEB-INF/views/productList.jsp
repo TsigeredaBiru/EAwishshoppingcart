@@ -37,26 +37,24 @@
 }
 .searchLoc{
     margin-top: 20px;
+
 }
     .styleUsersList{
-        width: 400px;
+        width: 200px;
         margin-left: 200px;
         padding: 10px;
        /* background-color: #1ab7ea;*/
-        /*display: inline-block*/;
+        display: inline-block;
     }
     #bodyContainer{
         margin-bottom: 100px;
         background-color: white;
 
     }
-    .productdisplay{
-        float: right;
-        margin:0 600px 0 0;
-        margin-left: 200px;
-        padding: 10px;
-    }
+    .styleUser{float: right;
+        margin-top: 15px;
 
+    }
 </style>
 
 
@@ -75,7 +73,15 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <p class="searchLoc"><input type="text" name="search"><a href="/products6?id=${product.productId}" class="btn btn-success searchP">Search</a></p>
+            <p class="searchLoc">
+            <form action="/search" method="post">
+                <input type="text" name="productName">
+                <%--a href="/products6?id=${product.productId}"--%>
+            <button type="submit" class="btn btn-success searchP">Search</button>
+            </form>
+
+            </p>
+
             <a class="navbar-brand" href="/">WishShoppingCart</a>
         </div>
         <!-- /.navbar-header -->
@@ -101,19 +107,18 @@
             </li>
 
         </ul>
-
+        <a class="styleUser" href="#">Username</a>
     </nav>
 
 
         </div>
         <!-- /.row -->
-
                     <!-- /.panel-heading -->
                     <div id="bodyContainer">
 
 
-                        <%--<a href="userlist"><h3 class="styleUsersList">List of users</h3></a>--%>
-                        <a href="userlist"><h2 class="styleUsersList">List of Products</h2></a>
+                        <a href="userlist"><h3 class="styleUsersList">List of users</h3></a>
+                        <a href="/productTable"><h3 class="styleUsersList">List of Products</h3></a>
                     </div>
 
 
@@ -133,14 +138,37 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="static/js/sb-admin-2.js"></script>
-<img src="${product.image}" width="50%" height="50%" style="padding: 10px 10px"/>
-<div class="productdisplay">
-<p>${product.description}</p>
-    <p>${product.price}</p>
-<p>${product.type}</p>
-    <a href="#" class="btn btn-success">Add to cart</a>
 
-</div>
+
+
+    <ul class="forImagelist">
+    <c:forEach var="product" items="${products}">
+        <li>
+           <a href="/products/details?id=${product.productId}">
+               <img src="data:image/jpg;base64,${strData}"
+            width="50%" height="50%" style="padding: 10px 10px"/>
+            </a>
+
+
+                <h4>${product.description}</h4>
+
+            <p>
+                <fmt:formatNumber type="currency">${product.price}</fmt:formatNumber>
+
+
+            </p>
+            <p>
+                <a href="#" class="btn btn-success">Add to cart</a>
+            </p>
+
+
+        </li>
+
+
+
+    </c:forEach>
+
+
 
 
 

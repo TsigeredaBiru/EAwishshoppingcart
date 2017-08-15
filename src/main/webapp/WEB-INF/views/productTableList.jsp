@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
 <!DOCTYPE html>
@@ -22,19 +22,21 @@
     <thead>
 
     <tr>
-        <th>product Id</th>
+        <th>Id</th>
+        <th>Product Name</th>
         <th>Description</th>
         <th>Image</th>
         <th>Price</th>
-        <th>Product type</th>
+        <th>Product Type</th>
     </tr>
     </thead>
 
     <tbody>
 
-    <%--<c:forEach var="product" items="${products}">--%>
+    <c:forEach var="product" items="${products}">
         <tr>
             <td>${product.productId}</td>
+            <td>${product.productName}</td>
             <td>${product.description}</td>
             <td>${product.image}</td>
             <td>${product.price}</td>
@@ -50,12 +52,12 @@
                 </form>
             </td>
         </tr>
-    <%--</c:forEach>--%>
+    </c:forEach>
     </tbody>
 
 </table>
-
-<a href="/products/update?productId=0"><button type="button" class="btn btn-primary">Add</button></a>
+<%--/products/update?productId=0--%>
+<a href="/createProduct"><button type="button" class="btn btn-primary">Add</button></a>
 </div>
 
 </body>

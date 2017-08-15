@@ -1,7 +1,6 @@
 package edu.mum.service;
 
 import edu.mum.entity.Product;
-import edu.mum.entity.ProductType;
 import edu.mum.repository.IProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,6 +50,16 @@ public class ProductService  {
         return "successfully updated!";
     }
 
+    public List<Product> findByProductName(String productName){
+
+        return productRepository.findByProductName(productName);
+
+    }
+
+   /* public Product findSingleProductByName(String productName){
+        return productRepository.findByProductname(productName);
+
+    }*/
 
 
 }

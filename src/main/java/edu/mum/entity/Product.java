@@ -11,10 +11,13 @@ public class Product {
     @GeneratedValue
     int productId;
 
+
+
+    String productName;
+
     double price;
     @Enumerated(EnumType.STRING)
     ProductType type;
-
     String description;
     @Lob
     byte[] image;
@@ -24,14 +27,16 @@ public class Product {
     String strData;
     /*OrderLine orderline;*/
 
-    public Product(double price, int productId, ProductType type, String description, byte[] image) {
+    public Product(String productName,double price, int productId, ProductType type, String description, byte[] image) {
         super();
 
+        this.productName = productName;
         this.price = price;
         this.productId = productId;
         this.type = type;
         this.description = description;
         this.image = image;
+
     }
 
     public Product() {
@@ -95,5 +100,14 @@ public class Product {
 
     public void setStrData(String strData) {
         this.strData = strData;
+    }
+
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 }

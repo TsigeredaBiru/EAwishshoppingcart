@@ -3,6 +3,7 @@ ul.forImagelist li {
     width: 200px;
     display: inline-block;
     vertical-align: top;
+    margin-left: 20px;
 
 }
 div.navcolor {
